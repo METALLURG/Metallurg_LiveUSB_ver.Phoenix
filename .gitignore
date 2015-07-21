@@ -1,13 +1,14 @@
 #============================#
 
-/Metallurg_LiveUSB/MSDaRT
-/Metallurg_LiveUSB/Memtest
-/Metallurg_LiveUSB/Victoria
+/Metallurg_LiveUSB/HBCD/
+/Metallurg_LiveUSB/MSDaRT/
+/Metallurg_LiveUSB/Memtest/
+/Metallurg_LiveUSB/Victoria/
 
 #============================#
 
-/Metallurg_LiveUSB/OS_Linux
-/Metallurg_LiveUSB/OS_Live
-/Metallurg_LiveUSB/OS_Windows
+/Metallurg_LiveUSB/OS_Linux/
+/Metallurg_LiveUSB/OS_Live/
+/Metallurg_LiveUSB/OS_Windows/
 
 #============================#
