@@ -1,0 +1,60 @@
+﻿###==================================================###
+###------------------ver.22.07.2015------------------###
+timeout 15
+default 0
+graphicsmode -1 640:480
+font /Metallurg_LiveUSB/unifont.hex.gz
+gfxmenu /Metallurg_LiveUSB/metallurg.gz
+###==================================================###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###=
+# ================================================================================ #
+
+# ================================================================================ #
+title Установка Windows 7
+map --mem (md)+4 (9)
+map /Metallurg_LiveUSB/OS_Windows/Windows_7_SP1_x86-x64_RU_AIO.iso (0xff)
+map (hd0) (hd1)
+map (hd1) (hd0)
+map --rehook
+write (9) [FiraDisk]\nStartOptions=cdrom,vmem=find:/Metallurg_LiveUSB/OS_Windows/Windows_7_SP1_x86-x64_RU_AIO.iso;\n\0
+chainloader (0xff)
+
+title Установка Windows 8.1 x86
+map --mem (md)+4 (9)
+map /Metallurg_LiveUSB/OS_Windows/win81x86.iso (0xff)
+map (hd0) (hd1)
+map (hd1) (hd0)
+map --rehook
+write (9) [FiraDisk]\nStartOptions=cdrom,vmem=find:/Metallurg_LiveUSB/OS_Windows/win81x86.iso;\n\0
+chainloader (0xff)
+
+title Установка Windows 8.1 x64
+map --mem (md)+4 (9)
+map /Metallurg_LiveUSB/OS_Windows/win81x64.iso (0xff)
+map (hd0) (hd1)
+map (hd1) (hd0)
+map --rehook
+write (9) [FiraDisk]\nStartOptions=cdrom,vmem=find:/Metallurg_LiveUSB/OS_Windows/win81x64.iso;\n\0
+chainloader (0xff)
+
+title Ubuntu 14.04 Mini OEM
+find --set-root /Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso
+map /Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso (0xff)
+map --hook
+root (0xff)
+kernel /casper/vmlinuz file=/cdrom/preseed/kubuntu.seed boot=casper persistent iso-scan/filename=/Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso splash
+initrd /casper/initrd.lz
+
+###==================================================###
+###------------------ver.22.07.2015------------------###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###

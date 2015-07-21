@@ -1,0 +1,41 @@
+﻿###==================================================###
+###------------------ver.22.07.2015------------------###
+timeout 30
+default 0
+graphicsmode -1 640:480
+font /unifont.hex.gz
+gfxmenu /penguins_gfx.gz
+###==================================================###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###=
+# ================================================================================ #
+
+# ================================================================================ #
+title Ubuntu 14.04 Mini OEM
+find --set-root /Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso
+map /Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso (0xff)
+map --hook
+root (0xff)
+kernel /casper/vmlinuz file=/cdrom/preseed/kubuntu.seed boot=casper persistent iso-scan/filename=/Metallurg_LiveUSB/OS_Linux/ubuntu_1404_x32_mini.iso splash
+initrd /casper/initrd.lz
+
+#	1	#
+
+title Arch_Linux 2014.07.03 Dual
+find --set-root --ignore-floppies /Metallurg_LiveUSB/OS_Linux/archlinux-2014.07.03-dual.iso
+map /Metallurg_LiveUSB/OS_Linux/archlinux-2014.07.03-dual.iso (0xff) || map --mem /Metallurg_LiveUSB/OS_Linux/archlinux-2014.07.03-dual.iso (0xff) 
+map --hook 
+chainloader (0xff)
+
+###==================================================###
+###------------------ver.22.07.2015------------------###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###

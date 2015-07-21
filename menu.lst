@@ -1,0 +1,65 @@
+timeout 15
+default 0
+graphicsmode -1 640:480
+font /Metallurg_LiveUSB/unifont.hex.gz
+gfxmenu /Metallurg_LiveUSB/metallurg.gz
+###==================================================###
+###------------------ver.22.07.2015------------------###
+###==================================================###
+
+	title Find & Boot From HDD
+	find --set-root --ignore-floppies --ignore-cd /bootmgr || find --set-root --ignore-floppies --ignore-cd /ntldr || rootnoverify (hd0) && chainloader +1 && boot
+	map () (hd0) && map (hd0) () && map --rehook
+	find --set-root --devices=h /bootmgr || find --set-root --ignore-floppies --ignore-cd /ntldr
+	chainloader /bootmgr || chainloader /ntldr
+# ================================================================================ #
+
+	title Hirens BootCD 15.2
+	# example password: test 
+	# password --md5 $1$gNe0$KZPOE8wNbTNSKOzrajuoB0
+	find --set-root /HBCD/XP/XP.BIN
+	#map --mem /HBCD/XP/f6drivers.img (fd0)&&map --hook
+	chainloader /HBCD/XP/XP.BIN
+# ================================================================================ #
+
+	title Start Memtest86+ V4.20 (25/01/2011)
+	kernel /Metallurg_LiveUSB/Memtest/memtestp.bin
+
+	title Start Memtest86+ V5.01 (27/09/2013)
+	kernel /Metallurg_LiveUSB/Memtest/memtest501.bin
+# ================================================================================ #
+
+			title |->>>	Другие LiveOS
+			lock
+			find --set-root /Metallurg_LiveUSB/menu-live.lst
+			configfile /Metallurg_LiveUSB/menu-live.lst
+
+			title |->>>	Работа с HDD
+			lock
+			find --set-root /Metallurg_LiveUSB/menu-hdd.lst
+			configfile /Metallurg_LiveUSB/menu-hdd.lst
+
+			title |->>>	Установка OS
+			lock
+			find --set-root /Metallurg_LiveUSB/menu-OS_Live.lst
+			configfile /Metallurg_LiveUSB/menu-OS_Live.lst
+
+			title |->>>	Загрузка с №-HDD
+			lock
+			find --set-root /Metallurg_LiveUSB/menu-hdd-boot.lst
+			configfile /Metallurg_LiveUSB/menu-hdd-boot.lst
+# ================================================================================ #
+
+	title Load USB 2.0 Driver\n
+	find --set-root /HBCD/Boot/plpbt.bin
+	kernel /HBCD/Boot/plpbt.bin
+# ================================================================================ #
+			title Reboot
+			reboot
+# ================================================================================ #
+			title Shutdown
+			halt
+# ================================================================================ #
+###==================================================###
+###------------------ver.22.07.2015------------------###
+###==================================================###

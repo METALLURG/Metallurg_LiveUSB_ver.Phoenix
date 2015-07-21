@@ -1,0 +1,65 @@
+###==================================================###
+###------------------ver.22.07.2015------------------###
+timeout 15
+default 0
+graphicsmode -1 640:480
+font /Metallurg_LiveUSB/unifont.hex.gz
+gfxmenu /Metallurg_LiveUSB/metallurg.gz
+###==================================================###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###
+
+title Acronis True Image Home 6673
+find --set-root --ignore-floppies /Metallurg_LiveUSB/Acronis/Acronis_TI_6673.iso
+map /Metallurg_LiveUSB/Acronis/Acronis_TI_6673.iso (0xff) || map --mem /Metallurg_LiveUSB/Acronis/Acronis_TI_6673.iso (0xff) 
+map --hook 
+chainloader (0xff)
+# ================================================================================ #
+
+title Acronis Disk Director 3219
+find --set-root --ignore-floppies /Metallurg_LiveUSB/Acronis/Acronis_DD_3219_Linux.iso
+map /Metallurg_LiveUSB/Acronis/Acronis_DD_3219_Linux.iso (0xff) || map --mem /Metallurg_LiveUSB/Acronis/Acronis_DD_3219_Linux.iso (0xff) 
+map --hook 
+chainloader (0xff)
+# ================================================================================ #
+
+title Acronis Disk Director WinPE_SS
+find --set-root --ignore-floppies /Metallurg_LiveUSB/Acronis/Acronis_WinPE_SS.iso
+map /Metallurg_LiveUSB/Acronis/Acronis_WinPE_SS.iso (0xff) || map --mem /Metallurg_LiveUSB/Acronis/Acronis_WinPE_SS.iso (0xff) 
+map --hook 
+chainloader (0xff)
+# ================================================================================ #
+
+#	# ================================================================================ #
+#
+#	title OLD Acronis True Image Home
+#	kernel /Metallurg_LiveUSB/Acronis/Acronis_True_Image_Home_2011/kernel.dat vga=0x317 quiet acpi=off noapic quiet
+#	initrd /Metallurg_LiveUSB/Acronis/Acronis_True_Image_Home_2011/init.dat
+#	# ================================================================================ #
+#
+#	title OLD Acronis Disk Director
+#	kernel /Metallurg_LiveUSB/Acronis/Acronis_Disk_Director_11/kernel.dat vga=0x317 quiet acpi=off noapic quiet
+#	initrd /Metallurg_LiveUSB/Acronis/Acronis_Disk_Director_11/init.dat
+#	# ================================================================================ #	
+	
+title Victoria v3.52  
+find --set-root /Metallurg_LiveUSB/Victoria/victoria.gz
+map --mem /Metallurg_LiveUSB/Victoria/victoria.gz (fd0)
+map --hook
+chainloader (fd0)+1
+rootnoverify (fd0)
+map --floppies=1
+boot
+# ================================================================================ #
+###==================================================###
+###------------------ver.22.07.2015------------------###
+title ------- АйТи - Эксперт (Main MENU) -------
+lock
+find --set-root /HBCD/menu.lst
+configfile /HBCD/menu.lst
+###------------------ver.22.07.2015------------------###
+###==================================================###
